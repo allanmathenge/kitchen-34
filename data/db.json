@@ -1,0 +1,164 @@
+{
+    "products": [
+        {
+            "id": "hjsdh",
+            "name": "cooking oven",
+            "price": 8000,
+            "image": "/images/cooking-oven.jpg",
+            "category": "appliances",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 4,
+            "available": true
+        },
+        {
+            "id": "hsncb",
+            "name": "dish drainer with mat",
+            "price": 6000,
+            "image": "/images/Dish-drainer-with-mat.jpg",
+            "category": "cooking tools and kitchen utensils",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 5,
+            "available": true
+        },
+        {
+            "id": "jjdje",
+            "name": "electric rice cooker",
+            "price": 9100,
+            "image": "/images/electric-rice-cooker.jpg",
+            "category": "appliances",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 4,
+            "available": true
+        },
+        {
+            "id": "nddlk",
+            "name": "improved pressure cooker",
+            "price": 12000,
+            "image": "/images/improved-pressure-cooker.jpg",
+            "category": "appliances",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 5,
+            "available": true
+        },
+        {
+            "id": "ueiri",
+            "name": "clock hotpot",
+            "price": 9000,
+            "image": "/images/clock-pot.jpg",
+            "category": "appliances",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 3,
+            "available": true
+        },
+        {
+            "id": "jjdka",
+            "name": "ninja air fryer",
+            "price": 6000,
+            "image": "/images/ninja-air-fryer.jpg",
+            "category": "prep tools and essentials",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 4,
+            "available": true
+        },
+        {
+            "id": "ndjdb",
+            "name": "pressure cooker",
+            "price": 10000,
+            "image": "/images/pressure-cooker.jpg",
+            "category": "prep tools and essentials",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 5,
+            "available": true
+        },
+        {
+            "id":"ieooe",
+            "name": "stainless steel programmable hotpot",
+            "price": 13000,
+            "image": "/images/stainless-steel-programmable-hotpot.jpg",
+            "category": "prep tools and essentials",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 4,
+            "available": true
+        },
+        {
+            "id": "bdjdk",
+            "name": "steel toaster",
+            "price": 5320,
+            "image": "/images/steel-toaster.jpg",
+            "category": "cookware and bakeware",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 3,
+            "available": true
+        },
+        {
+            "id": "qwere",
+            "name": "Toaster oven with french doors",
+            "price": 10900,
+            "image": "/images/Toaster-Oven-with-French-doors.jpg",
+            "category": "cookware and bakeware",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 5,
+            "available": true
+        },
+        {
+            "id": "ghdjd",
+            "name": "large dish drying rack",
+            "price": 1300,
+            "image": "/images/large-dish-drying-rack.jpg",
+            "category": "cooking tools and kitchen utensils",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 3,
+            "available": true
+        },
+        {
+            "id": "klsjs",
+            "name": "under sink organizer storage",
+            "price": 5000,
+            "image": "/images/under-sink-organizer-storage.jpg",
+            "category": "cooking tools and kitchen utensils",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 4,
+            "available": true
+        },
+        {
+            "id": "sffsh",
+            "name": "fullstar vegetable chopper",
+            "price": 7000,
+            "image": "/images/fullstar-vegetable-chopper.jpg",
+            "category": "cooking tools and kitchen utensils",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 4,
+            "available": true
+        },
+        {
+            "id": "vsjsj",
+            "name": "professional kitchen cookware",
+            "price": 10900,
+            "image": "/images/professional-kitchen.jpg",
+            "category": "cookware and bakeware",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 5,
+            "available": true
+        },
+        {
+            "id": "lsksi",
+            "name": "outdoor grill",
+            "price": 10900,
+            "image": "/images/outdoor-grill.jpg",
+            "category": "cookware and bakeware",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 2,
+            "available": true
+        },
+        {
+            "id": "bjsjq",
+            "name": "kitchen induction cookware",
+            "price": 10900,
+            "image": "/images/kitchen-induction-cookware.jpg",
+            "category": "cookware and bakeware",
+            "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
+            "rate-rate": 5,
+            "available": true
+        }
+    ]
+}
