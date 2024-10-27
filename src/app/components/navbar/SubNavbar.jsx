@@ -10,7 +10,7 @@ export default function SubNavbar() {
     <section className="py-2 sm:py-4">
       <div className="h-[40px] flex justify-between gap-1 sm:gap-5 items-center">
 
-      <div className="hidden sm:flex flex-1 text-xl text-white/80 tracking-tighter items-center cursor-pointer gap-1 text-nowrap h-full bg-red-600 hover:bg-red-500 font-bold hover:text-white rounded-sm"><GrAnnounce className="ml-2"/>Offers & Promotions</div>
+      <div className="hidden sm:flex flex-1 text-xl text-white/80 tracking-tighter items-center cursor-pointer gap-1 text-nowrap h-full bg-red-600 hover:bg-red-500 font-bold overflow-hidden hover:text-white rounded-sm"><GrAnnounce className="ml-2"/>Offers & Promotions</div>
 
         <div className="sm:flex-1 flex-auto h-[40px] relative">
           <input 
@@ -28,18 +28,18 @@ export default function SubNavbar() {
           </div>
         </div>
         
-        <div className="flex-1 flex justify-between items-start">
-          <p className="text-xl font-thin hidden sm:flex">+254 798769535</p>
-          <div className="text-red-400 flex justify-end gap-1 sm:gap-3 text-[12px] sm:text-xl">
-            <div className="cursor-pointer w-[24px] h-[24px] relative flex justify-center items-center">
+        <div className="flex-1 ">
+          <div className="flex justify-end gap-1 sm:gap-3 text-[12px] sm:text-xl">
+            <p className="text-xl text-slate-600 font-medium hidden sm:flex justify-end text-nowrap">+254 798769535</p>
+            <div className="cursor-pointer text-red-400 w-[24px] h-[24px] relative flex justify-center items-center">
                 <FaRegHeart className="" />
                 <p className="bg-red-500 text-white absolute text-[12px] h-[14px] w-[14px] top-0 right-0 z-10 rounded-full flex justify-center items-center">1</p>
             </div>
-            <div className="cursor-pointer w-[24px] h-[24px] relative flex justify-center items-center">
+            <div className="cursor-pointer text-red-400 w-[24px] h-[24px] relative flex justify-center items-center">
                 <FaRegBell className="" />
                 <p className="bg-red-500 text-white absolute text-[12px] h-[14px] w-[14px] top-0 right-0 z-10 rounded-full flex justify-center items-center">2</p>
             </div>
-            <div className="cursor-pointer w-[24px] h-[24px] relative flex justify-center items-center">
+            <div className="cursor-pointer text-red-400 w-[24px] h-[24px] relative flex justify-center items-center">
                 <FaRegMessage className="" />
                 <p className="bg-red-500 text-white absolute text-[12px] h-[14px] w-[14px] top-0 right-0 z-10 rounded-full flex justify-center items-center">1</p>
             </div>
