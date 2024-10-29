@@ -1,6 +1,7 @@
 import Link from "next/link"
 import getAllProducts from "@/lib/getAllProducts"
 import ListItems from "./ListItems"
+import AnimatedScrollList from "./AnimatedScrollList"
 
 export const revalidate = 0
 
@@ -21,18 +22,26 @@ export default async function HomePage() {
 
     return (
     <section className="pb-16">
-        <div className="text-white/80 hover:text-white font-bold text-center py-12">
+        <div className="text-white/80 hover:text-white font-bold text-center py-8">
             <Link href="/" className="no-underline">
                 <span className="text-3xl sm:text-5xl block text-nowrap">Kitchen-34</span>
                 <span className=" text-[10px] sm:text-xl text-center">Upgrade your kitchen appliances</span>
             </Link>
         </div>
 
+        {/* Items on animated horizontal scroll */}
+        <div className="py-6">
+            <h2 className="text-xl font-bold text-slate-500 my-2">Top categories in kitchen appliances</h2>
+            <div className="">
+                <AnimatedScrollList products={products} />
+            </div>
+        </div>
+
         <div className="flex flex-1 flex-wrap justify-center sm:justify-between gap-3">
         {
             // products categories
             Object.keys(categories).map((category) => (
-                <div key={category} className="bg-white w-[288px] h-[360px] p-2 flex justify-between flex-col items-start">
+                <div key={category} className="bg-white w-full sm:w-[288px] h-[360px] p-2 flex justify-between flex-wrap flex-shrink items-start">
 
                     <h2 className="capitalize font-bold pb-2 ">{category}</h2>
 
@@ -57,14 +66,3 @@ export default async function HomePage() {
     </section>
     )
 }
-
-// {
-//     productsCategory.map((product) => (
-//         <ul 
-//             key={product.id} 
-//             className="bg-white p-4 flex flex-col justify-center sm:justify-between list-none">
-//             <h2 className="text-xl font-bold text-black/80 capitalize">{product.category}</h2>
-//             <ListItems product={product} />
-//         </ul>
-//     ))
-// }

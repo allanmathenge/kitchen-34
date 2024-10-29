@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className="h-[56px] flex justify-between gap-1 items-center">
 
             <div className="">
-                <h2 className=" sm:text-3xl tracking-tighter font-black text-red-600">
+                <h2 className=" sm:text-3xl tracking-tighter font-black text-red-600 m-0">
                     <Link className="no-underline text-nowrap text-[2pc]" href="/">
                         Kitchen-34
                     </Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
             </div>
             
             {/* cta */}
-            <div className="flex gap-2 items-center font-bold text-black/70">
+            <div className="hidden md:flex gap-2 items-center font-bold text-black/70">
                 <div className="">Login</div>
                 <div className="gap-1 items-center flex"><FaGlobe className="text-red-600" /> EN<MdOutlineKeyboardArrowDown /></div>
                 <div className="cursor-pointer"><FaShoppingCart className="text-slate-700 text-xl" /></div>
@@ -61,7 +61,7 @@ export default function Navbar() {
 
             {/* mobile navigation bar */}
 
-            <div className={`${isOpen ? " relative" : "bg-black min-h-screen w-full"} top-0 absolute z-20 flex flex-col items-end md:hidden `}>
+            <div className={`${isOpen ? " relative" : "bg-black min-h-screen w-full"} top-0 absolute z-50 flex flex-col items-end md:hidden `}>
 
                 <button onClick={toggleMenu} className={`${isOpen ? "" : "toggle-btn"} text-slate-600 w-8 h-8 m-2`}>
 
@@ -95,6 +95,8 @@ export default function Navbar() {
                         <Link href="/thank-you">
                             <li className="">Thankyou</li>
                         </Link>
+
+                        <Link href="/" className="">Login</Link>
 
                     </ul>
                 </div> 
