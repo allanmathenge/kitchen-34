@@ -1,12 +1,13 @@
 import Link from "next/link"
 import React from "react"
-import { FaFacebook, FaInstagram, FaLinkedinIn, FaTelegram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Footer() {
   return (
     <section className="text-slate-600">
-        <div className="flex h-8 bg-slate-600 w-full text-white font-bold justify-center items-center cursor-pointer">Back to top</div>
+        <div className="flex h-8 bg-slate-600 hover:bg-slate-500 w-full text-white font-bold justify-center items-center cursor-pointer rounded" ><ScrollToTop /></div>
         <div className="flex flex-wrap justify-between py-4 gap-4">
 
             <div className="flex flex-col">

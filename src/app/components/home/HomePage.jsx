@@ -1,7 +1,7 @@
 import Link from "next/link"
-import getAllProducts from "@/lib/getAllProducts"
+import getAllProducts from "../../../lib/getAllProducts"
 import ListItems from "./ListItems"
-import AnimatedScrollList from "./AnimatedScrollList"
+import HorizontalScrollList from "./HorizontalScrollList"
 
 export const revalidate = 0
 
@@ -31,9 +31,9 @@ export default async function HomePage() {
 
         {/* Items on animated horizontal scroll */}
         <div className="py-6">
-            <h2 className="text-xl font-bold text-slate-500 my-2">Top categories in kitchen appliances</h2>
+            <h2 className="text-sm md:text-xl font-bold text-slate-500 my-2">Top categories in kitchen appliances</h2>
             <div className="">
-                <AnimatedScrollList products={products} />
+                <HorizontalScrollList products={products} />
             </div>
         </div>
 
@@ -41,11 +41,11 @@ export default async function HomePage() {
         {
             // products categories
             Object.keys(categories).map((category) => (
-                <div key={category} className="bg-white w-full sm:w-[288px] h-[360px] p-2 flex justify-between flex-wrap flex-shrink items-start">
+                <div key={category} className="bg-white w-auto sm:max-w-[288px] h-[360px] p-2 flex justify-between flex-wrap flex-shrink items-start overflow-hidden">
 
                     <h2 className="capitalize font-bold pb-2 ">{category}</h2>
 
-                    <ul className="flex flex-wrap sm:flex-wrap gap-2 list-none">
+                    <ul className="flex flex-wrap justify-around gap-2 list-none">
                         {
                             // map items under the same category
                             categories[category].slice(0, 4).map((item) => (
