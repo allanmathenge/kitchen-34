@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <section className="text-slate-600">
         <div className="flex h-8 bg-slate-600 hover:bg-slate-500 w-full text-white font-bold justify-center items-center cursor-pointer rounded" ><ScrollToTop /></div>
-        <div className="flex flex-wrap justify-between py-4 gap-4">
+        <div className="flex flex-wrap justify-between py-4 gap-4 p-2">
 
             <div className="flex flex-col">
                 <h1 className="capitalize font-bold">Shoping guide</h1>
@@ -36,7 +36,7 @@ export default function Footer() {
             </div>
 
         </div>
-        <div className="flex gap-4 text-xl flex-wrap p-3">
+        <div className="flex gap-4 text-xl flex-wrap p-2">
             <Link href="/"><FaFacebookF /></Link>
             <Link href="/"><FaXTwitter /></Link>
             <Link href="/"><FaYoutube /></Link>
@@ -46,7 +46,7 @@ export default function Footer() {
 
         <div className="border-[1px] border-white/80 w-full" />
 
-        <div className="flex items-center gap-4 my-3">
+        <div className="flex items-center gap-4 my-3 px-2">
             <p>All rights reserved </p>
             <h2 className=" sm:text-xl tracking-tighter font-black text-red-600 m-0">
                 <span className="text-slate-600">&copy;</span>

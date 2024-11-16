@@ -3,15 +3,27 @@
 import React from "react"
 import { useCart } from "../../context/CartContext"
 import Image from "next/image"
+import toast, { Toaster } from "react-hot-toast"
 
 export default function Cart() {
     const { cart, removeItemFromCart } = useCart()
 
     const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
-    if (cart.length === 0) return <div className="min-h-[80vh]">
-        <p className="flex justify-center items-center font-bold text-xl ">Your cart is empty</p>
+    if (cart.length === 0) return <div className="min-h-screen flex justify-center items-center">
+        <p className="font-bold text-xl ">Your cart is empty</p>
     </div>
+
+    const handleShareClick = async () => {
+        try {
+            const currentUrl = window.location.href
+            await navigator.clipboard.writeText(currentUrl)
+            toast.success("Link copied successfully!")
+        } catch (error) {
+            console.log("link failed to copy", error)
+            toast.error("Failed to copy link!")
+        }
+    }
 
   return (
     <section className="min-h-screen">
@@ -39,7 +51,11 @@ export default function Cart() {
                                         <div className="flex gap-3">
                                             <p className="text-slate-400 hover:text-slate-600 border border-slate-400 rounded-full w-28 text-center hover:border-slate-800">Quantity: {quantity} </p>
                                             <button onClick={() => removeItemFromCart(id)} className="text-slate-400 hover:text-slate-600 border border-slate-400 rounded-full w-28 text-center hover:border-slate-800">Remove </button>
-                                            <button className="text-slate-400 hover:text-slate-600 border border-slate-400 rounded-full w-28 text-center hover:border-slate-800">share</button>
+                                            <button 
+                                                className="text-slate-400 hover:text-slate-600 border border-slate-400 rounded-full w-28 text-center hover:border-slate-800"
+                                                onClick={handleShareClick}
+                                            >Share</button>
+                                            <Toaster position="top-center" reverseOrder={false} />
                                         </div>
                                     </div>
 
@@ -52,7 +68,11 @@ export default function Cart() {
                         ))
                     }
                 </ul>
+                <div className="flex items-center justify-end">
+                    <p className="text-sm font-medium">Subtotal KSH {totalPrice}</p>
+                </div>
             </div>
+
             <div className="h-auto flex flex-col gap-4">
                 <div className="shadow text-sm h-[120px] w-full flex flex-col justify-center items-center bg-white/80 border gap-3 border-slate-400 p-2 rounded">
                     <h4 className="font-medium text-sm text-nowrap">Subtotal (items): <span className="font-semibold">KSH {totalPrice}</span></h4>
@@ -65,6 +85,7 @@ export default function Cart() {
                     <div className="w-full h-[120px] border border-slate-400"></div>
                 </div>
             </div>
+
         </div>
     </section>
   )

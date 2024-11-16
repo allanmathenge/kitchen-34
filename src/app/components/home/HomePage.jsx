@@ -2,6 +2,7 @@ import Link from "next/link"
 import getAllProducts from "../../../lib/getAllProducts"
 import ListItems from "./ListItems"
 import HorizontalScrollList from "./HorizontalScrollList"
+import { Suspense } from "react"
 
 export const revalidate = 0
 
@@ -19,7 +20,7 @@ export default async function HomePage() {
         accumulator[item.category].push(item)
         return accumulator
     }, {})
-
+    
     return (
     <section className="pb-16">
         <div className="text-white/80 hover:text-white font-bold text-center py-8">
@@ -33,7 +34,9 @@ export default async function HomePage() {
         <div className="py-6">
             <h2 className="text-sm md:text-xl font-bold text-slate-500 my-2">Top categories in kitchen appliances</h2>
             <div className="">
-                <HorizontalScrollList products={products} />
+                <Suspense fallback={<h2 className="font-medium">Loading ...</h2>}>
+                    <HorizontalScrollList products={products} /> 
+                </Suspense>
             </div>
         </div>
 
@@ -45,16 +48,19 @@ export default async function HomePage() {
 
                     <h2 className="capitalize font-bold pb-2 ">{category}</h2>
 
-                    <ul className="flex flex-wrap justify-around gap-2 list-none">
+                    <Link href={`/products/categories/${encodeURIComponent(category)}`} className="flex flex-wrap justify-around gap-2 list-none hover:shadow-sm">
                         {
                             // map items under the same category
                             categories[category].slice(0, 4).map((item) => (
                                 <li key={item.id} className="">
-                                    <ListItems item={item} />
+                                    {/* React suspense */}
+                                    <Suspense fallback={<h2 className="font-medium">Loading ...</h2>}>
+                                        <ListItems item={item} />
+                                    </Suspense>
                                 </li>
                             ))
                         }
-                    </ul>
+                    </Link>
                     <Link 
                         href="/"
                         className="text-[10px] text-slate-500 hover:text-red-500"

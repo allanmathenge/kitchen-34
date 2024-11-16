@@ -7,7 +7,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function SubNavbar() {
   return (
-    <section className="pb-1 sm:py-4">
+    <section className="sm:py-0">
       <div className="h-[40px] flex justify-between gap-1 sm:gap-5 items-center">
 
       <div className="hidden md:flex flex-1 text-sm md:text-xl text-white/80 items-center cursor-pointer gap-1 text-nowrap h-full bg-red-600 hover:bg-red-500 font-bold overflow-hidden hover:text-white rounded-full"><GrAnnounce className="ml-2"/>

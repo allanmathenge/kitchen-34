@@ -11,15 +11,24 @@ import { useCart } from "../../context/CartContext"
 export default function Navbar() {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
+    const [activeIndex, setActiveIndex] = useState(0)
     const { cart } = useCart()
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
 
+    const navItems = [
+        {name:"Home", href:"/"},
+        {name:"Products", href:"/products"},
+        {name:"Contact", href:"/contacts"},
+        {name:"Customer Service", href:"/customer-service"},
+        {name:"Shop By Interest", href:"/shop-by-interest"}
+    ]
+
   return (
-    <nav className="sticky top-0 bg-slate-200 px-[4px]">
-        <div className="h-[56px] flex justify-between gap-1 items-center">
+    <nav className="sticky top-0 bg-slate-200 px-[4px] py-2">
+        <div className="h-auto flex justify-between gap-1 items-center">
 
             <div className="">
                 <h2 className=" sm:text-3xl tracking-tighter font-black text-red-600 m-0">
@@ -35,26 +44,13 @@ export default function Navbar() {
             <div className="hidden text-[1pc] md:flex font-bold text-black/70">
                 <ul className="list-none flex justify-around gap-3">
 
-                    <Link href="/">
-                        <li className="text-red-600">Home</li>
-                    </Link>
-
-                    <Link href="/products">
-                        <li className="">Products</li>
-                    </Link>
-
-                    <Link href="/contacts">
-                        <li className="">Contact</li>
-                    </Link>
-
-                    <Link href="/customer-service">
-                        <li className="text-nowrap">Customer Service</li>
-                    </Link>
-
-                    <Link href="/shop-by-interest">
-                        <li className="text-nowrap">Shop By Interest</li>
-                    </Link>
-
+                    {
+                        navItems.map((item, index) => (
+                            <Link key={index} onClick={() => setActiveIndex(index)} href={item.href} className={`font-bold ${activeIndex === index ? "text-red-600" : ""}`}>
+                                {item.name} 
+                            </Link>
+                        ))
+                    }
                 </ul>
             </div>
             

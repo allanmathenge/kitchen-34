@@ -37,14 +37,14 @@ export default async function Product({ params }) {
   // console.log(product)
   if (!product) notFound()
 
-  const { name, rate, price, image, description } = product
+  const { name, rate, price, image, description, brand } = product
   // Build react icon stars depending on rating
 
   return (
-    <section className="pb-6 md:py-8 bg-white">
+    <section className=" md:py-8 bg-white">
       <div className="py-3 flex flex-wrap items-center justify-around border-b border-slate-100 gap-0 mb-3">
 
-        <p className="font-bold text-slate-500">Brand</p>
+        <p className="font-medium text-slate-500">Brand: <span className="font-bold">{brand}</span></p>
 
         <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
           <h2 className="font-bold text-slate-800 md:text-xl capitalize text-nowrap">{name}</h2>
@@ -86,12 +86,12 @@ export default async function Product({ params }) {
           </div>
 
           <div className="flex md:flex-row gap-3 items-center w-full">
-            <input 
+            {/* <input 
               className="hidden md:flex bg-white/60 border-2 border-slate-500 focus:border-slate-600 outline-none rounded-full text-black font-medium px-3 py-3 w-full"
               type="text"
               placeholder="Quantity: 1"
               value=""
-            />
+            /> */}
             <div className="border border-slate-400 bg-[#FFD700] rounded-full text-sm font-bold w-full text-nowrap">
               <AddItemToCartButton item={product}/>
             </div>
