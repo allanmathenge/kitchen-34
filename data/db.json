@@ -16,8 +16,9 @@
             "name": "dish drainer with mat",
             "price": 6000,
             "image": "/images/Dish-drainer-with-mat.jpg",
-            "category": "cooking tools and kitchen utensils",
+            "category": "cooking tools and utensils",
             "brand": "Eurochef",
+            "color": ["gray", "steel"],
             "description": "COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked. PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials.",
             "rate": 5,
             "available": true
@@ -51,6 +52,7 @@
             "image": "/images/clock-pot.jpg",
             "category": "appliances",
             "brand": "Scrub Daddy",
+            "color": ["gray", "steel"],
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 3,
             "available": true
@@ -73,6 +75,7 @@
             "image": "/images/pressure-cooker.jpg",
             "category": "prep tools and essentials",
             "brand": "Utopia Kitchen",
+            "color": ["gray", "steel"],
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 5,
             "available": true
@@ -84,6 +87,7 @@
             "image": "/images/stainless-steel-programmable-hotpot.jpg",
             "category": "prep tools and essentials",
             "brand": "Utopia Kitchen",
+            "color": ["gray", "steel"],
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 4,
             "available": true
@@ -115,7 +119,7 @@
             "name": "large dish drying rack",
             "price": 1300,
             "image": "/images/large-dish-drying-rack.jpg",
-            "category": "cooking tools and kitchen utensils",
+            "category": "cooking tools and utensils",
             "brand": "Scrub Daddy",
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 3,
@@ -126,8 +130,9 @@
             "name": "under sink organizer storage",
             "price": 5000,
             "image": "/images/under-sink-organizer-storage.jpg",
-            "category": "cooking tools and kitchen utensils",
+            "category": "cooking tools and utensils",
             "brand": "NutriBullet",
+            "color": ["gray", "steel"],
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 4,
             "available": true
@@ -137,7 +142,7 @@
             "name": "fullstar vegetable chopper",
             "price": 7000,
             "image": "/images/fullstar-vegetable-chopper.jpg",
-            "category": "cooking tools and kitchen utensils",
+            "category": "cooking tools and utensils",
             "brand": "Kitchen Aid",
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 4,
@@ -150,6 +155,7 @@
             "image": "/images/professional-kitchen.jpg",
             "category": "cookware and bakeware",
             "brand": "Eurochef",
+            "color": ["gray", "steel"],
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 5,
             "available": true
@@ -161,6 +167,7 @@
             "image": "/images/outdoor-grill.jpg",
             "category": "cookware and bakeware",
             "brand": "Mueller",
+            "color": ["gray", "steel"],
             "description": "PREMIUM STAINLESS STEEL CUTLERY SET: This tableware set is made of food grade stainless steel, as everyday use eating utensil sets, will not bend or break, rust resistant, corrosion resistance and Long life-time for years to come, Also this cutlery set will not produce residues or odors like other materials. COMFEE' Rice Cooker, Japanese Large Rice Cooker with Fuzzy Logic Technology, 11 Cup Cooked",
             "rate": 2,
             "available": true

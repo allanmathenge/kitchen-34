@@ -19,11 +19,11 @@ export default function Navbar() {
     }
 
     const navItems = [
-        {name:"Home", href:"/"},
-        {name:"Products", href:"/products"},
-        {name:"Contact", href:"/contacts"},
-        {name:"Customer Service", href:"/customer-service"},
-        {name:"Shop By Interest", href:"/shop-by-interest"}
+        {name:"Home", path:"/"},
+        {name:"Products", path:"/products"},
+        {name:"Contact", path:"/contacts"},
+        {name:"Customer Service", path:"/customer-service"},
+        {name:"Shop By Interest", path:"/shop-by-interest"}
     ]
 
   return (
@@ -43,11 +43,10 @@ export default function Navbar() {
             {/* desktop navigation bar */}
             <div className="hidden text-[1pc] md:flex font-bold text-black/70">
                 <ul className="list-none flex justify-around gap-3">
-
                     {
-                        navItems.map((item, index) => (
-                            <Link key={index} onClick={() => setActiveIndex(index)} href={item.href} className={`font-bold ${activeIndex === index ? "text-red-600" : ""}`}>
-                                {item.name} 
+                        navItems.map((item) => (
+                            <Link key={item.path} href={item.path} className={`text-black/80 hover:text-black/60 ${ router.pathname === item.path ? "text-red-500" : ""}`}> 
+                                {item.name}
                             </Link>
                         ))
                     }
