@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import groupItemsByCategory from "../../utils/groupItemsByCateory"
 import { categoryImages } from "../../utils/categoryImages"
 import Image from "next/image"
 import StarRating from "../[id]/components/StarRating"
@@ -10,15 +9,25 @@ import Link from "next/link"
 import { useCategoryContext } from "../../context/CategoryContext"
 
 export default function CategoryList() {
-    const { setSelectedCategory, filteredProducts, products } = useCategoryContext()
-    const groupedProducts = groupItemsByCategory(products)
+    const { setSelectedCategory, filteredProducts, selectedCategory, products } = useCategoryContext()
+    const productsCategory = [...new Set(products.map(product => product.category))]
+
+    // const filteredProducts = products.filter((product) => {
+    //     const categoryMatch = selectedCategory ? product.category === selectedCategory : true
+    //     const brandMatch = selectedBrand ? product.brand === selectedBrand : true
+
+    //     return categoryMatch && brandMatch
+    // })
 
   return (
     <section className="w-full flex flex-col p-2">
         <div className="flex flex-wrap justify-between border-b w-full gap-3 pb-3">
             {
-                Object.entries(groupedProducts).map(([category, items]) => (
-                    <div onClick={() => setSelectedCategory(category)} key={category} className="cursor-pointer shadow-sm rounded hover:shadow p-1">
+                productsCategory.map((category) => (
+                    <div 
+                        onClick={() => setSelectedCategory(category)} 
+                        key={category} 
+                        className={`cursor-pointer shadow-sm rounded hover:shadow p-1 ${ selectedCategory === category ? "shadow-lg" : "" }`}>
                         <div className="w-[160px] flex justify-between flex-col">
                             <Image
                                 src={categoryImages[category]}
@@ -37,8 +46,9 @@ export default function CategoryList() {
 
         {/* Products display */}
         <ol className="flex flex-wrap justify-between w-full gap-y-5 py-8 border-b border-slate-400">
-            {
-                filteredProducts.slice(0, 16).map(({id, name, image, price, description, rate, color}) => (
+            { filteredProducts.length > 0 ?
+                (  
+                filteredProducts.map(({id, name, image, price, description, rate, color}) => (
                     <div key={id} className="w-[168px] h-[288px] shadow hover:shadow-md">
                         <Link href={`/products/${id}`} className="">
 
@@ -65,8 +75,14 @@ export default function CategoryList() {
                                     }
                                     </div>
                                     
-                                    <p className="capitalize text-[10px] font-medium">{name}</p>
-                                    <p className="capitalize text-[10px]">{description.length > 100 ? description.slice(36, 80) + "..." : description}</p>
+                                    <p className="capitalize text-[10px] font-medium text-nowrap overflow-hidden">{name}</p>
+                                    <p className="capitalize text-[10px]">
+                                        {
+                                            description.length > 100 
+                                            ? description.slice(36, 80) + "..." 
+                                            : description
+                                        }
+                                    </p>
                                     <div className="text-[10px] flex items-center gap-2 h-4"><StarRating rating={rate} /><span className="">243</span></div>
                                     <div className="flex gap-2">
                                         <p className="text-[10px] font-medium text-nowrap">KSH {price}</p>
@@ -81,9 +97,9 @@ export default function CategoryList() {
                         </Link>
                     </div>
                 ))
+                ) : <p className="font-medium flex items-center justify-center">No products found</p>
             }
         </ol>
-
     </section>
   )
 }

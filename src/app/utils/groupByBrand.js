@@ -21,5 +21,4 @@ export default function groupByBrand(filteredItems) {
             items:brandGroups[brand]
         }
     ))
-
 }

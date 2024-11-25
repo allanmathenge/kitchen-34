@@ -1,18 +1,23 @@
-import React from "react"
+"use client"
+
+import React, { useState, useEffect } from "react"
 import { RiMenu3Fill } from "react-icons/ri";
 import { CgMenuGridR } from "react-icons/cg";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import getAllProducts from "../../lib/getAllProducts";
-import groupByBrand from "../utils/groupByBrand";
 import CategoryList from "./components/CategoryList"
 import CategoryNav from "./components/CategoryNav"
+import { useCategoryContext } from "../context/CategoryContext";
+import InputCategory from "./components/InpuCategory"
+import getAllProducts from "../../lib/getAllProducts";
 
-export default async function Product() {
-  const products = await getAllProducts()
+// Build brand context
+export default function Product() {
+
+  const { products, setSelectedCategory, selectedCategory, selectedBrand, setSelectedBrand } = useCategoryContext()
 
   const categoryArray = [...new Set(products.map(product => product.category))]
 
-  const groupedItems = groupByBrand(products)
+  const brandsArray = [...new Set(products.map(product => product.brand))]
 
   return (
     <section className="py-6 bg-white">
@@ -73,9 +78,13 @@ export default async function Product() {
             <div className="text-[10px] capitalize font-medium flex flex-col gap-1 p-2">
               {
                 categoryArray?.map((cat) => (
-                  <li key={cat} className="list-none cursor-pointer">
+                  <button 
+                    onClick={() => setSelectedCategory(cat)} 
+                    key={cat} 
+                    className={`border-none text-start capitalize text-black/80 ${ selectedCategory === cat ? "bg-slate-100 rounded py-1 text-black" : "" }`}
+                  >
                     {cat}
-                  </li>
+                  </button>
                 ))
               }
             </div>
@@ -88,9 +97,11 @@ export default async function Product() {
             </p>
 
             <div className="flex flex-col gap-2">
-
+              {/* Radio buttons for filtering items */}
               <div className="flex items-center gap-2 p-2 py-0">
-                <input type="radio"  />
+                <input 
+                  type="radio"
+                />
                 <label htmlFor="all" className="font-medium text-[10px]">Show All</label>
               </div>
 
@@ -123,35 +134,7 @@ export default async function Product() {
               <span >Special Offers</span>
               <span >-</span>
             </p>
-
-            <div className="flex flex-col gap-2">
-
-              <label htmlFor="offers" className="flex gap-2 items-center p-2 py-0">
-                <input type="radio" className="hidden" />
-                <div className="w-4 h-4 border-2 border-gray-400 rounded-md peer-checked:bg-slate-500 peer-checked:border-slate-500"></div>
-                <span className="font-medium text-[10px]">Clearance</span>
-              </label>
-
-              <label htmlFor="offers" className="flex gap-2 items-center p-2 py-0">
-                <input type="radio" className="hidden" />
-                <div className="w-4 h-4 border-2 border-gray-400 rounded-md peer-checked:bg-slate-500 peer-checked:border-slate-500"></div>
-                <span className="font-medium text-[10px]">New</span>
-              </label>
-
-              <label htmlFor="offers" className="flex gap-2 items-center p-2 py-0">
-                <input type="radio" className="hidden" />
-                <div className="w-4 h-4 border-2 border-gray-400 rounded-md peer-checked:bg-slate-500 peer-checked:border-slate-500"></div>
-                <span className="font-medium text-[10px]">Reduced Price</span>
-              </label>
-
-              <label htmlFor="offers" className="flex gap-2 items-center p-2 py-0">
-                <input type="radio" className="hidden" />
-                <div className="w-4 h-4 border-2 border-gray-400 rounded-md peer-checked:bg-slate-500 peer-checked:border-slate-500"></div>
-                <span className="font-medium text-[10px]">Only At Kitchen-34</span>
-              </label>
-              
-            </div>
-
+              <InputCategory />
           </div>
 
           <div >
@@ -170,18 +153,26 @@ export default async function Product() {
 
               <div className="flex gap-2 flex-col">
                 {
-                  groupedItems.map((group) => (
-                    <label key={group.brand} htmlFor="" className="text-[10px] flex gap-2 items-center">
-                      <input type="radio" className="hidden" />
-
-                      <div className="w-4 h-4 border-2 border-gray-400 rounded-md peer-checked:bg-slate-500 peer-checked:border-slate-500"></div>
-                      {group.brand}
+                  brandsArray.map((brand) => (
+                    <label
+                      key={brand}
+                      htmlFor=""
+                      className="text-[10px] flex gap-2 items-center"
+                    >
+                      <input 
+                        type="radio"
+                        name="brand"
+                        checked={selectedBrand === brand}
+                        value={brand}
+                        onChange={() => setSelectedBrand(brand)}
+                      />
+                      {/* <div className="w-4 h-4 border-2 border-gray-400 rounded-md peer-checked:bg-slate-500 peer-checked:border-slate-500"></div> */}
+                      {brand}
                     </label>
                   ))
                 }
               </div>
             </div>
-
           </div>
         </ol>
       </div>

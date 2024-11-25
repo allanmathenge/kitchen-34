@@ -1,9 +1,12 @@
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import getAllProducts from "../../../lib/getAllProducts"
 
 // eslint-disable-next-line @next/next/no-async-client-component
-export default function HorizontalScrollList({ products }) {
+export default async function HorizontalScrollList() {
+
+  const products = await getAllProducts()
 
   return (
     <div>

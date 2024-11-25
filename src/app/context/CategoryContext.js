@@ -8,7 +8,7 @@ const CategoryContext = createContext()
 export const CategoryProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
-    // console.log(selectedCategory)
+    const [selectedBrand, setSelectedBrand] = useState(null)
 
     useEffect(() => {
         async function fetchProducts() {
@@ -18,7 +18,12 @@ export const CategoryProvider = ({ children }) => {
         fetchProducts()
     }, [])
 
-    const filteredProducts = selectedCategory ? products.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase()) : products
+    const filteredProducts = products.filter((product) => {
+        const categoryMatch = selectedCategory ? product.category === selectedCategory : true
+        const brandMatch = selectedBrand ? product.brand === selectedBrand : true
+
+        return categoryMatch && brandMatch
+    })
 
   return (
     <CategoryContext.Provider
@@ -26,7 +31,9 @@ export const CategoryProvider = ({ children }) => {
             products,
             filteredProducts,
             selectedCategory,
-            setSelectedCategory
+            setSelectedCategory,
+            selectedBrand,
+            setSelectedBrand
         }}
     >
     {children}
