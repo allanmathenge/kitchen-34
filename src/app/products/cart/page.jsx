@@ -4,11 +4,16 @@ import React from "react"
 import { useCart } from "../../context/CartContext"
 import Image from "next/image"
 import toast, { Toaster } from "react-hot-toast"
+import { useCategoryContext } from "../../context/CategoryContext"
+import { categoryImages } from "../../utils/categoryImages"
+import Link from "next/link"
 
 export default function Cart() {
     const { cart, removeItemFromCart } = useCart()
+    const { products } = useCategoryContext()
 
     const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    const cartCategory = [...new Set(products.map((product) => product.category))]
 
     if (cart.length === 0) return <div className="min-h-screen flex justify-center items-center">
         <p className="font-bold text-xl ">Your cart is empty</p>
@@ -20,7 +25,6 @@ export default function Cart() {
             await navigator.clipboard.writeText(currentUrl)
             toast.success("Link copied successfully!")
         } catch (error) {
-            console.log("link failed to copy", error)
             toast.error("Failed to copy link!")
         }
     }
@@ -80,9 +84,24 @@ export default function Cart() {
                 </div>
                 <div className="w-full h-full bg-white/90 border border-slate-400 rounded flex flex-col p-2 gap-3">
                     <h1 className="text-[12px] font-bold">Customers who bought items in your rescent search history also bought</h1>
-                    <div className="w-full h-[120px] border border-slate-400"></div>
-                    <div className="w-full h-[120px] border border-slate-400"></div>
-                    <div className="w-full h-[120px] border border-slate-400"></div>
+                    {
+                        cartCategory.map((category) => (
+                            <Link
+                                href={`/products/categories/${encodeURIComponent(category)}`}
+                                key={category}
+                                className="w-full h-[120px] border bg-white border-slate-400 flex flex-col items-center justify-center"
+                            >
+                            <p className="capitalize text-[10px]">{category}</p>
+                                <Image
+                                    src={categoryImages[category]}
+                                    alt={category}
+                                    width={100}
+                                    height={100}
+                                    className=" object-contain"
+                                />
+                            </Link>
+                        ))
+                    }
                 </div>
             </div>
 

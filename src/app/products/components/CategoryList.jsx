@@ -28,14 +28,14 @@ export default function CategoryList() {
                         onClick={() => setSelectedCategory(category)} 
                         key={category} 
                         className={`cursor-pointer shadow-sm rounded hover:shadow p-1 ${ selectedCategory === category ? "shadow-lg" : "" }`}>
-                        <div className="w-[160px] flex justify-between flex-col">
+                        <div className="w-[160px] flex justify-around items-center flex-col">
                             <Image
                                 src={categoryImages[category]}
                                 alt={category}
-                                width={50}
-                                height={50}
+                                width={160}
+                                height={160}
                                 priority
-                                className="w-full h-[160px] object-contain"
+                                className="max-h-[160px] object-contain"
                             />
                             <h2 className="capitalize text-[12px]">{category}</h2>
                         </div>
@@ -52,16 +52,16 @@ export default function CategoryList() {
                     <div key={id} className="w-[168px] h-[288px] shadow hover:shadow-md">
                         <Link href={`/products/${id}`} className="">
 
-                            <div className="flex flex-col h-full gap-2 justify-between p-1">
+                            <div className="flex flex-col h-full gap-2 justify-around p-1">
 
                                 <div className="flex w-full justify-center rounded-sm">
                                     <Image 
                                         src={image}
                                         alt={name}
-                                        width={60}
-                                        height={60}
+                                        width={132}
+                                        height={132}
                                         priority
-                                        className="flex w-auto object-contain h-[160px]"
+                                        className="flex w-auto object- max-h-[120px]"
                                     />
                                 </div>
 

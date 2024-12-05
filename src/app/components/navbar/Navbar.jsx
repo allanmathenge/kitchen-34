@@ -5,13 +5,13 @@ import React, { useState } from "react"
 import { FaGlobe, FaShoppingCart } from "react-icons/fa"
 import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import SubNavbar from "./SubNavbar"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { useCart } from "../../context/CartContext"
 
 export default function Navbar() {
-    const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
-    const [activeIndex, setActiveIndex] = useState(0)
+    const router = useRouter()
+    const pathname = usePathname()
     const { cart } = useCart()
 
     const toggleMenu = () => {
@@ -45,7 +45,11 @@ export default function Navbar() {
                 <ul className="list-none flex justify-around gap-3">
                     {
                         navItems.map((item) => (
-                            <Link key={item.path} href={item.path} className={`text-black/80 hover:text-black/60 ${ router.pathname === item.path ? "text-red-500" : ""}`}> 
+                            <Link 
+                                key={item.path}
+                                href={item.path}
+                                className={`text-black/90 ${ pathname === item.path ? "text-red-500" : ""}`}
+                            >
                                 {item.name}
                             </Link>
                         ))

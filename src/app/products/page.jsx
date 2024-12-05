@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import { useState } from "react";
 import { RiMenu3Fill } from "react-icons/ri";
 import { CgMenuGridR } from "react-icons/cg";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -8,16 +8,18 @@ import CategoryList from "./components/CategoryList"
 import CategoryNav from "./components/CategoryNav"
 import { useCategoryContext } from "../context/CategoryContext";
 import InputCategory from "./components/InpuCategory"
-import getAllProducts from "../../lib/getAllProducts";
 
 // Build brand context
 export default function Product() {
-
+  const [ searchBrand, setSearchBrand ] = useState("")
+  
   const { products, setSelectedCategory, selectedCategory, selectedBrand, setSelectedBrand } = useCategoryContext()
 
   const categoryArray = [...new Set(products.map(product => product.category))]
 
   const brandsArray = [...new Set(products.map(product => product.brand))]
+
+  const filteredBrands = brandsArray.filter((brand) => brand.toLowerCase().includes(searchBrand.toLowerCase()))
 
   return (
     <section className="py-6 bg-white">
@@ -32,18 +34,18 @@ export default function Product() {
       {/* Beginning of products sub navbar */}
       <div className="flex w-full justify-between gap-2 h-8 border-b border-slate-200 items-end">
 
-        <p className="text-sm font-medium text-nowrap w-[180px]">1 - 40 of 1000+ products</p>
+        <p className="text-[10px] md:text-[14px] font-medium text-nowrap w-[180px] flex items-center">1 - 40 of 1000+ products</p>
 
         <div className="flex flex-1 justify-between text-sm w-full items-center">
 
-          <div className="flex gap-3">
-            <h4 className="font-medium ">Refine By |</h4>
+          <div className="flex gap-2 md:gap-3 text-[10px] md:text-[14px]">
+            <h4 className="font-medium text-nowrap ">Refine By |</h4>
             <p className="cursor-pointer flex items-center">Price <MdOutlineKeyboardArrowDown className="text-xl"/></p>
-            <p className="cursor-pointer flex items-center">Top Brands <MdOutlineKeyboardArrowDown className="text-xl" /></p>
-            <p className="cursor-pointer flex items-center">Availability <MdOutlineKeyboardArrowDown className="text-xl"/></p>
+            <p className="cursor-pointer flex items-center text-nowrap">Top Brands <MdOutlineKeyboardArrowDown className="text-xl" /></p>
+            <p className="cursor-pointer hidden md:flex items-center ">Availability <MdOutlineKeyboardArrowDown className="text-xl"/></p>
           </div>
 
-          <div className="flex gap-2">
+          <div className="md:flex gap-2 hidden">
 
             <h4 className="font-medium">Sort By |</h4>
 
@@ -149,15 +151,29 @@ export default function Product() {
                 type="text"
                 className="w-full border-t-0 border-x-0 border-b focus:outline focus:outline-slate-200 px-2 py-1 text-[10px] bg-transparent rounded-none"
                 placeholder="Find a brand"
+                value={searchBrand}
+                onChange={(e) => setSearchBrand(e.target.value)}
               />
 
-              <div className="flex gap-2 flex-col">
+              <div className="flex gap-2 flex-col text-[10px]">
+                {/* Brands Array */}
+                {/* <label 
+                  htmlFor="Ail"
+                  className="flex gap-2 items-center"
+                  value={""}
+                  onChange={(e) => setSelectedBrand(e.target.value)}
+                >
+                  <input type="radio" className="" />
+                  All
+                </label> */}
                 {
-                  brandsArray.map((brand) => (
+
+                  filteredBrands.length
+                  ?  filteredBrands.map((brand) => (
                     <label
                       key={brand}
-                      htmlFor=""
-                      className="text-[10px] flex gap-2 items-center"
+                      htmlFor="brand"
+                      className=" flex gap-2 items-center"
                     >
                       <input 
                         type="radio"
@@ -170,6 +186,7 @@ export default function Product() {
                       {brand}
                     </label>
                   ))
+                  : <p className="text-[10px] font-black text-black/60">No brand found</p>
                 }
               </div>
             </div>

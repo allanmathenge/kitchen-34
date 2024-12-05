@@ -8,8 +8,7 @@ const CategoryContext = createContext()
 export const CategoryProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
-    const [selectedBrand, setSelectedBrand] = useState(null)
-
+    const [selectedBrand, setSelectedBrand] = useState("")
     useEffect(() => {
         async function fetchProducts() {
             const fetchedProducts = await getAllProducts()
@@ -24,7 +23,7 @@ export const CategoryProvider = ({ children }) => {
 
         return categoryMatch && brandMatch
     })
-
+    
   return (
     <CategoryContext.Provider
         value={{
