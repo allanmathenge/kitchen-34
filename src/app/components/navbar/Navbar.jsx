@@ -58,8 +58,38 @@ export default function Navbar() {
             </div>
             
             {/* cta */}
+
             <div className="hidden md:flex gap-2 items-center font-bold text-black/70">
-                <div className="">Login</div>
+
+                <div className="relative group">
+                    <button className="px-4 py-1 bg-slate-400 rounded-md hover:bg-slate-500 focus:outline-none hover:text-slate-200">Login</button>
+                    {/* Dropdown menu */}
+                    <div className="absolute right-0 mt-0 w-48 bg-white/90 text-gray-700 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out transform scale-95 pointer-events-none group-hover:pointer-events-auto">
+                    
+                    <Link 
+                        href="/register" 
+                        className="block px-4 py-2 hover:bg-slate-200"
+                    >
+                        Register
+                    </Link>
+
+                      <Link 
+                        href="/login"
+                        className="block px-4 py-2 hover:bg-slate-200"
+                    >
+                        Sign In
+                      </Link>
+
+                      <Link 
+                        href="/forgot-password" 
+                        className="block px-4 py-2 hover:bg-slate-200"
+                    >
+                        Forgot Password?
+                    </Link>
+
+                    </div>
+                </div>
+
                 <div className="gap-1 items-center flex"><FaGlobe className="text-red-600" /> EN<MdOutlineKeyboardArrowDown /></div>
 
                 <div 
