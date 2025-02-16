@@ -1,49 +1,108 @@
 "use client"
 
-import React from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import React, { useState } from "react"
+import Link from "next/link";
 
-export default function Register() {
-    const router = useRouter()
+  export default function CreateAccount() {
 
+    const [formData, setFormData] = useState({name:"", email:"", password:""})
+    const [message, setMessage] = useState("")
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            })
+
+            if (response.ok) {
+                setFormData({
+                    name:"",
+                    email:"",
+                    password:"",
+                })
+                setMessage(`User ${userAgent.name} successfully registered!`)
+            }
+
+        } catch (error) {
+            setMessage("An error occured. Please try again!")
+        }
+    }
+    
   return (
-    <section className="w-full h-screen">
-        <div className="md:w-96 w-64 mx-auto">
-            <h1 className="sm:text-3xl tracking-tighter font-black text-red-600 m-0 text-xl text-center py-4">Kitchen-34</h1>
-            <div className="bg-white w-full px-2 py-4 rounded flex flex-col gap-3 h-[400px]">
-                <h4 className="font-thin text-slate-800 text-2xl">Register</h4>
-                <div className="flex flex-col gap-4 justify-between w-[92%] h-full border border-slate-400 shadow rounded mx-auto px-2 py-4">
+    <section className="min-h-screen w-full bg-white">
+        <div className="border-b border-slate-200">
+        <h1 className="sm:text-3xl tracking-tighter font-black text-red-600 m-0 text-xl text-center py-4">Kitchen-34</h1>
+        <form 
+            className="sm:w-96 w-[80%] min-h-[70vh] bg-white border shadow mx-auto rounded p-4 flex flex-col justify-between gap-3 mb-6"
+            // OnSubmit
+            onSubmit={handleSubmit}
+        >
+            <h1 className="text-xl font-medium">Create Account</h1>
 
-                    <div className="">
-                        <label htmlFor="register" className=" font-medium">Enter your Email</label>
-                        <input 
-                            type="text"
-                            className="w-full border-slate-500 outline-slate-400 shadow px-2 py-1 "
-                            placeholder="example@gmail.com"
+            <label htmlFor="name" className="text-[12px] font-medium">
+                Your name
+                <input 
+                    type="text" 
+                    className="w-full border border-slate-300 shadow focus:shadow-md outline-none text-[12px] p-1 rounded-sm" 
+                    placeholder="Your first and lastname"
+                    required
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                />
+            </label>
 
-                        />
-                    </div>
+            <label htmlFor="email" className="text-[12px] font-medium">
+                Your Email
+                <input 
+                    type="text" 
+                    className="w-full border border-slate-300 shadow focus:shadow-md outline-none text-[12px] p-1 rounded-sm"
+                    name="email" 
+                    placeholder="Your email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                />
+            </label>
 
-                    <button className="w-full px-auto py-1 border bg-[#FFD700] rounded-md text-sm md:text-xl text-black/70 font-bold">Continue</button>
+            <label htmlFor="password" className="text-[12px] font-medium">
+                Password
+                <input 
+                    type="password" 
+                    className="w-full border border-slate-300 shadow focus:shadow-md outline-none text-[12px] p-1 rounded-sm"
+                    name="password"
+                    placeholder="Enter password"
+                    required
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+            </label>
 
-                    <p className="text-[10px]">By continuing, you agree to Kitchen-34&apos;s Conditions of use and privacy notification</p>
+            <label htmlFor="password" className="text-[12px] font-medium">
+                Re-enter Password
+                <input 
+                    type="text"
+                    name="password" 
+                    className="w-full border border-slate-300 shadow focus:shadow-md outline-none text-[12px] p-1 rounded-sm" 
+                    placeholder="Re-enter your password"
+                />
+            </label>
 
-                    <Link href="/help" className="text-blue-400 underline" >Need help?</Link>
+            <button type="submit" className="w-full px-auto p-[0.5] border bg-[#FFD700] rounded-md text-sm md:text-xl text-black/70 font-medium">Continue</button>
 
-                    <div className="" >
-                        <hr className="w-full bg-slate-400" />
-                        <p className="-mt-[12px] bg-white text-center max-w-32 mx-auto text-[12px]">New to Kitchen-34?</p>
-                    </div>
+            <p className="text-[10px]">By creating an account, you agree our Conditions of use and privacy notice</p>
+            <p className="text-[10px]">Already have an account? <Link href="/sign-in" className="text-blue-600">Sign in</Link></p>
 
-                    <button 
-                        className="bg-slate-100 hover:bg-slate-200 border-slate-300 rounded text-[13px] py-1"
-                        onClick={router.push("/register/create-account")}
-                    >Create your account</button>
-
-                </div>
-
-            </div>
+        </form>
+        {message && <p className="text-red-500 text-center">{message}</p>}
         </div>
     </section>
   )
