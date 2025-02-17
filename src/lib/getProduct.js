@@ -2,7 +2,7 @@ import React from "react"
 
 export default async function getProduct(id) {
   
-  const res = await fetch(`http://localhost:3500/products/${id}`, {
+  const res = await fetch(`process.env.DATA/${id}`, {
     next: {revalidate: 60},
 })
 
