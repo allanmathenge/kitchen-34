@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, useMemo } from "react"
 import { useCategoryContext } from "../../context/CategoryContext"
 
 export default function CommandSearch() {
@@ -10,7 +10,7 @@ export default function CommandSearch() {
     const inputRef = useRef(null)
     const { products } = useCategoryContext()
 
-    const items = [...new Set(products.map(product => product.category))]
+    const items = useMemo([...new Set(products.map(product => product.category))])
 
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -25,7 +25,7 @@ export default function CommandSearch() {
             window.removeEventListener("keydown", handleKeyDown)
         })
 
-    }, [isOpen])
+    }, [isOpen, items])
 
     useEffect(() => {
         setFilteredItems(
